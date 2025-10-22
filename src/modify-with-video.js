@@ -46,15 +46,15 @@ const decreaseScore = (name) => {
   }
 }
 
-const resetAllScores = () => {
-  for (let i = 0; i < players.length; i++) {
-    let player = players[i];
-    resetSingleScore(player);
-  }
-}
-
 const resetSingleScore = (player) => {
   player.score = 0;
+}
+
+const resetAllScores = () => {
+  for (let i = 0; i < players.length; i++) {
+    const player = players[i];
+    resetSingleScore(player);
+  }
 }
 
 const getTopScorer = () => {

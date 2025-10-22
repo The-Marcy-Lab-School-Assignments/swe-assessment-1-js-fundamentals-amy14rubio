@@ -14,7 +14,7 @@
 // ============================================
 
 const petJudger = (petBreed, petName) => {
-  if (!petBreed || !petName) {
+  if (!petBreed || !petName) { //  checks if either petBreed or petName is falsy
     console.log(`Missing information. Please provide a valid pet.`);
   } else if (petBreed === 'dog') {
     console.log(`I love dogs! ${petName} is so cute!`);
@@ -34,6 +34,7 @@ const petJudger = (petBreed, petName) => {
 // ============================================
 
 const loopFromOneUpToAnother = (firstNum, secondNum) => {
+  //  the program will run as long as firstNum is less than secondNum
   for (let i = firstNum; i < secondNum; i++) console.log(i);
 };
 
@@ -42,6 +43,7 @@ const loopFromOneUpToAnother = (firstNum, secondNum) => {
 // ============================================
 
 const shoutEveryLetterForLoop = (str) => {
+  //  for every character, the function will log the uppercase character in a new line
   for (const char of str) console.log(`${char.toUpperCase()}!`);
 };
 
@@ -50,6 +52,7 @@ const shoutEveryLetterForLoop = (str) => {
 // ============================================
 
 const letterCaseCounts = (str) => {
+  //  declares the frequency counter
   const freq = {
     lowercase: 0,
     uppercase: 0,
@@ -57,15 +60,14 @@ const letterCaseCounts = (str) => {
   };
 
   for (const char of str) {
-    if (/[A-Z]/.test(char)) {
+    if (/[A-Z]/.test(char)) { //  tests if the character is found in uppercase A to Z
       freq.uppercase++;
-    } else if (/[a-z]/.test(char)) {
+    } else if (/[a-z]/.test(char)) { //  tests if the character is found in lowercase a to z
       freq.lowercase++;
-    } else {
+    } else { //  all other characters are added to the key 'neither'
       freq.neither++;
     }
   }
-
   return freq;
 };
 
@@ -74,8 +76,10 @@ const letterCaseCounts = (str) => {
 // ============================================
 
 const getNamesOfGreedyGnomes = (gnomes) => {
-  const filteredGnomes = gnomes.filter((gnome) => gnome.stolenDecorations.length > 1);
-  return filteredGnomes.map((gnome) => gnome.name);
+  //  filters through all the gnomes checking if they stole more than 1 decoration
+  const greedyGnomes = gnomes.filter((gnome) => gnome.stolenDecorations.length > 1);
+  //  returns the key 'name' from each of the greedyGnomes and adds it to a new array
+  return greedyGnomes.map((gnome) => gnome.name);
 };
 
 // ============================================
