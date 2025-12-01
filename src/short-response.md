@@ -8,7 +8,7 @@ Write your responses directly in this file. Follow markdown formatting guideline
 
 ### Question 1
 
-There is a scope error in the block of code. The variable `currentStatus` is declared within the `if statement` and **only exists** within the scope of the `if statement`. The program cannot `console.log(currentStatus);` because the variable does not exist outside of the `if statement`. To fix this error, the `currentStatus` variable should be declared before the `if statement` and would no longer have to be declared twice within the `if statement`. Here is an example:
+There is a scope error in the block of code. The variable `currentStatus` is declared within the `if statement` and **because `let` and `const` create block-scoped variables, it only exists inside that block.** The program cannot `console.log(currentStatus);` because the variable does not exist outside of the `if statement` as it is declared with `let`. To fix this error, the `currentStatus` variable should be declared before the `if statement` and would no longer have to be declared twice within the `if statement`. Here is an example:
 
 ```
 const react = (isReuben) => {
@@ -29,7 +29,7 @@ This solution allows for `currentStatus` to exist outside of the scope of the if
 
 ### Question 2
 
-The block of code will log `Michael Jordan`. This is because objects pass by reference. Meaning that because `theGOAT` is a copy of the object `bestPlayer`, then if `bestPlayer` is reassigned, `theGOAT` will also be reassigned.
+The block of code will log `Michael Jordan`. This is because objects objects in JavaScript pass by reference, not by value. Since `theGOAT` is a copy of the object `bestPlayer`, both variables are pointing to the same object in memory. Then, if `bestPlayer.name` is updated, the update is reflected through both references, and `theGOAT.name` will also reflect the new value.
 
 ### Question 3
 
@@ -40,7 +40,7 @@ Paul is the hardest working person in the room.
 Laisha is also the hardest working person in the room.
 ```
 
-This is because both `const theHustler` variables only exist within their own scope. Meaning that within the `shoutOut` function, the program will have a new `const theHustler` declared and will not conflict with the `const theHustler` variable outside of the scope of the function. `shoutOut()` would be printed first with `const theHustler = 'Paul';` and then the `console.log` statement with `const theHustler = 'Laisha';` due to control flow.
+This is because both `const theHustler` variables only exist within their own scope. Inside the `shoutOut` function, a new block-scoped `theHustler` is created, meaning that the inner declaration does not conflict with or overwrite the `const theHustler` variable outside of the scope of the function. `shoutOut()` would log first with the value `'Paul'` and then the final `console.log` would run with the value `'Laisha'` due to control flow.
 
 ### Question 4
 
